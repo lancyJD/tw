@@ -25,7 +25,6 @@ export default {
 
 <style lang='less'>
 
-
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -33,20 +32,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  .bar{
-    float: left;
-    height: 30px;
-    line-height: 30px;
-    width: 100%;
-    bottom: 0;
-    position: absolute;
-    .nactive{
-      float: left;
-      width: 25%;
-      line-height: 30px;
-      height: 30px
-    }
-  }
   .view{
       max-width:  800px;
       margin:  0 auto;
@@ -54,38 +39,24 @@ export default {
   }
 
 
-.fade-enter-active, .fade-leave-active {
-  transition:  all .3s ease
-}
+  .fade-enter-active, .fade-leave-active {
+    transition:  all .3s ease
+  }
 
-.fade-enter, .fade-leave-active{
-  opacity: 0
-}
+  .fade-enter, .fade-leave-active{
+    opacity: 0
+  }
 
-.back-transition { 
-  transition: transform .5s ease;
-}
-.back-enter{
-  transform: translate(100%,0);
-}
-.back-leave {
-  transform: translate(-100%,0);
-}
-/* 
-@media (max-width 860px)
-  .header .inner
-    padding 15px 30px
+  .back-transition { 
+    transition: transform .5s ease;
+  }
+  .back-enter{
+    transform: translate(100%,0);
+  }
+  .back-leave {
+    transform: translate(-100%,0);
+  }
 
-@media (max-width 600px)
-  body
-    font-size 14px
-  .header
-    .inner
-      padding 15px
-    a
-      margin-right 1em
-    .github
-      display none */
 
 }
 </style>
