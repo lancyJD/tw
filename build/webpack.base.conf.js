@@ -30,7 +30,8 @@ module.exports = {
       'store':path.resolve(__dirname,'../src/store/index'),
       'getters':path.resolve(__dirname,'../src/store/getters'),
       'actions':path.resolve(__dirname,'../src/store/actions'),
-      'mock':path.resolve(__dirname,'../src/mock')
+      'mock':path.resolve(__dirname,'../src/mock'),
+      'muse-components': 'muse-ui/src'
         
     }
   },
@@ -68,6 +69,10 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
+      },
+      {
+        test: /muse-ui.src.*?js$/,
+        loader: 'babel'
       }
     ]
   },

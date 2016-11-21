@@ -1,36 +1,37 @@
 <template>
-	<section>
-      	<div class='bar'>
-	        <div v-for="item in index_nav"   class="nactive">
-	           <router-link class='link' :to="item.path">{{item.text}}</router-link>
-             <div class='font_bottom'>{{item.text}}</div>
-	        </div>
-	       <!--  <div class="nactive">
-	        	<router-link to="/bar">22</router-link>
-	        </div>
-	        <div class="nactive">
-	        	<router-link to="/foo">33</router-link>
-	        </div>
-	        <div class="nactive">
-	        	<router-link to="/foo">44</router-link>
-	        </div> -->
-      	</div>
-
-    <!-- <nav>
-        <dl v-for="item in index_nav" v-link="item.path" >
-            <dt class="iconfont" :class="item.iconClass">
-                <i v-if="item.hint.count" v-text="item.hint | get_prompt " :class="'_news-'+item.hint.type"></i>
-            </dt>
-            <dd v-text="item.text"></dd>
-        </dl>
-    </nav>
-    </section> -->
+	<div class='nav-container'>
+    <ul class="icon_lists clear">
+           
+            <router-link  tag="li" to="/home">
+              <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-msnui-hot"></use>
+              </svg>
+              <div class="name">热门</div>
+             </router-link>
+            
+            <router-link  tag="li" to="/bar">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-20150325094323471easyiconnet"></use>
+                </svg>
+                <div class="name">檬课</div>
+            </router-link>
+             <router-link  tag="li" to="/foo">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-wo"></use>
+                </svg>
+                <div class="name">檬店</div>
+            </router-link>
+             <router-link  tag="li" to="/foo">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-shangdian"></use>
+                </svg>
+                <div class="name">我的</div>
+            </router-link>
+    </ul>
 </template>
 
 <script>
 
-// import { indexNav } from 'getters'
-// import { get_index_nav, set_menu_active} from 'actions'
 import { mapGetters, mapActions } from 'vuex'
 export default {
   data () {
@@ -49,7 +50,19 @@ export default {
 </script>
 
 <style lang='less'  scoped>
-
+.icon {
+  /* 通过设置 font-size 来改变图标大小 */
+  width: .5rem; height: .5rem;
+  /* 图标和文字相邻时，垂直对齐 */
+  /* 通过设置 color 来改变 SVG 的颜色/fill */
+  fill: currentColor;
+  /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
+     normalize.css 中也包含这行 */
+  overflow: hidden;
+}
+.nav-container{
+  height: 100vh;
+}
 .bar{
     float: left;
     height: 30px;

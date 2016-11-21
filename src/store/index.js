@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import * as actions from 'actions'
 import * as getters from 'getters'
 import base from './modules/base'
+import home from './modules/home'
 // import products from './modules/products'
 // import createLogger from '../../node_modules/vuex/src/plugins/logger'
 
@@ -14,7 +15,8 @@ export default new Vuex.Store({
   actions,
   getters,
   modules: {
-    base
+    base,
+    home
   },
   strict: debug
 })

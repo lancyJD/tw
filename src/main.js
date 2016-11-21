@@ -5,6 +5,16 @@ import store from './store'
 import * as filters from './filters'
 import App from './App'
 
+import MuseUI from 'muse-ui'
+import 'muse-ui/dist/muse-ui.css'
+import 'muse-ui/dist/theme-carbon.css' // 使用 carbon 主题
+import appbar from 'muse-components/appbar'
+import avatar from 'muse-components/avatar'
+// ..
+Vue.component(appbar.name, appbar)
+Vue.component(avatar.name, avatar)
+Vue.use(MuseUI)
+
 
 sync(store, router)
 
