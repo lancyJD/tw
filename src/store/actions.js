@@ -11,7 +11,7 @@ export const set_menu_active = ({ commit }, _index) => {
 }
 
 export const get_index_data = ({commit}) => {
-	console.log(">>>>>>>>>>>>>>>>>>>>>>")
+	console.log("<<<<<<<<<<<<<<<<<<")
 	api.geIndextData(function(data){
 		commit(types.GET_INDEX_DATA, data);
 	})

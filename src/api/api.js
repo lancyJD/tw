@@ -8,7 +8,16 @@ Vue.use(VueResource)
 Vue.http.options.emulateJSON = true
 Vue.http.options.crossOrigin = true
 
- Vue.http.options.root = 'http://test.heatup.cn/api'
+ // Vue.http.options.root = 'http://test.heatup.cn/api'
+
+import wilddog from 'wilddog'
+
+var config = {
+  syncURL: "https://lusa.wilddogio.com" //输入节点 URL
+};
+wilddog.initializeApp(config);
+var ref = wilddog.sync().ref('/data');
+
 
 // Vue.http.interceptors.push({
 //   request (request) {
@@ -24,14 +33,11 @@ export default {
 
   //获取首页数据
   geIndextData(cb) {
-
-      Vue.http.get('hot/recom/hot_main_info').then(function(data){
-        console.log(data.data)
-        cb(data.data)
-      });
+     ref.on("value", function(snapshot) {
+     	console.log(snapshot.val())
+	    cb(snapshot.val());
+	});
 
   },
- 
-
   
 }
