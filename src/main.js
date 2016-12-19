@@ -1,4 +1,5 @@
 import Vue from 'vue'
+
 import { sync } from 'vuex-router-sync'
 import router from './router'
 import store from './store'
@@ -14,7 +15,6 @@ import avatar from 'muse-components/avatar'
 Vue.component(appbar.name, appbar)
 Vue.component(avatar.name, avatar)
 Vue.use(MuseUI)
-
 
 sync(store, router)
 

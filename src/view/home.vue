@@ -2,8 +2,7 @@
 	<div class='home-container'>
 
 		<swiper :options="swiperOption">
-	      <swiper-slide v-for='item in indexData.data.hot_banner_list'>
-	      	
+	      <swiper-slide v-for='item in indexData'>
 	      	<img :src="item.imageUrl" />
 	      </swiper-slide>
 	      <div class="swiper-pagination" slot="pagination"></div>
@@ -28,15 +27,16 @@ export default {
     return {
     	swiperOption: {
             pagination: '.swiper-pagination',
-            paginationClickable: true
+            paginationClickable: true,
+            autoplay: 2000
         }
       }
   },
   computed: mapGetters({
     indexData: 'indexData'
   }),
-   methods: mapActions([
-    'get_index_data'
+  methods: mapActions([
+    // 'get_index_data'
   ]),
   created () {
     this.$store.dispatch('get_index_data')
@@ -62,6 +62,7 @@ export default {
 	}
 	.master-video{
 		height: 2rem;
+		font-size: .2rem;
 		.title{
 			height: 1rem;
 			background-color: #fff;

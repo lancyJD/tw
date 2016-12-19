@@ -10,16 +10,16 @@ Vue.http.options.crossOrigin = true
 
  Vue.http.options.root = 'http://test.heatup.cn/api'
 
-Vue.http.interceptors.push({
-  request (request) {
-    // 这里对请求体进行处理
-    return request
-  },
-  response (response) {
-    // 这里可以对响应的结果进行处理
-    return response
-  }
-})
+// Vue.http.interceptors.push({
+//   request (request) {
+//     // 这里对请求体进行处理
+//     return request
+//   },
+//   response (response) {
+//     // 这里可以对响应的结果进行处理
+//     return response
+//   }
+// })
 export default {
 
   //获取首页数据
