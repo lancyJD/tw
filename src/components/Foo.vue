@@ -1,6 +1,6 @@
 <template>
-	<div>
-		This is foo!!
+	<div class='l-store'>
+		This is store!
 	</div>
 </template>
 
@@ -17,5 +17,8 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang='less' scoped>
+.l-store{
+	font-size: 1rem;
+}
 </style>

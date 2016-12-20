@@ -1,6 +1,6 @@
 <template>
-	<div>
-		This is bar!!
+	<div class="lemmon-course">
+		This is course!
 	</div>
 </template>
 
@@ -17,5 +17,8 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang='less' scoped>
+.lemmon-course{
+	font-size: 1rem;
+}
 </style>

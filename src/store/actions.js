@@ -11,13 +11,21 @@ export const set_menu_active = ({ commit }, _index) => {
 }
 
 export const get_index_data = ({commit}) => {
-	console.log("<<<<<<<<<<<<<<<<<<")
 	api.geIndextData(function(data){
 		commit(types.GET_INDEX_DATA, data);
 	})
 }
+//添加todo
+export const addTodo = ({commit}, todo) => {
+	console.log(todo)
+	api.addTodo(todo, function(res){
 
-//向外导出统一的action方法
-function makeAction (type) {
-  return ({ dispatch }, ...args) => dispatch(type, ...args)
+	});
+	commit(types.ADD_TODO, todo)
 }
+
+// //向外导出统一的action方法
+// function makeAction (type) {
+//   return ({ dispatch }, ...args) => dispatch(type, ...args)
+// }
+

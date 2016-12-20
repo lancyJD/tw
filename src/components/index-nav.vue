@@ -61,34 +61,47 @@ export default {
   overflow: hidden;
 }
 .nav-container{
-  height: 100vh;
+ /* height: 100vh;*/
 }
-.bar{
-    float: left;
-    height: 30px;
-    line-height: 30px;
-    width: 100%;
-    bottom: 0;
-    position: absolute;
-    .nactive{
-      float: left;
-      width: 25%;
-      line-height: 30px;
-      height: 30px
-    }
-  }
-  .font_bottom{
-    font-size: 12px;
-    bottom: 2px;
 
-  }
-  .link{
-
-  }
 
 /* nav dl.v-link-active dl,
 nav dl.v-link-active dt {
     color: #0bb908;
 } */
+
+
+.icon_lists{
+  width: 100% !important;
+  position: absolute;
+  bottom: 0;
+  border-top: 1px solid #e2e2e2;
+}
+
+.icon_lists li{
+  float:left;
+  width: 25%;
+  text-align: center;
+  list-style: none !important;
+  color:#999;
+  font-size: .22rem;
+}
+.icon_lists .name{
+  color:#797676;
+}
+.icon_lists .icon{
+  margin-top: .1rem;
+  font-size: 25px;
+  line-height: 100px;
+  color:#9a9a9a;
+  -webkit-transition: font-size 0.25s ease-out 0s;
+  -moz-transition: font-size 0.25s ease-out 0s;
+  transition: font-size 0.25s ease-out 0s;
+
+}
+.icon_lists .icon:hover{
+  font-size: 30px;
+}
+
 
 </style>

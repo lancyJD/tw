@@ -21,12 +21,12 @@ th, td /* table elements 表格元素 */ {
 /** 设置默认字体 **/
 body,
 button, input, select, textarea /* for ie */ {
-  font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
+  /*font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;*/
 }
 h1, h2, h3, h4, h5, h6 { font-size: 100%; }
 address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
 code, kbd, pre, samp { font-family: courier new, courier, monospace; } /* 统一等宽字体 */
-small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
+small { font-size: .12rem; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
 
 /** 重置列表元素 **/
 ul, ol { list-style: none; }
@@ -70,37 +70,6 @@ margin: 0 auto;
   border:solid 1px #e7e1cd;
   background-color: #fffdef;
   overflow: auto;
-}
-
-.icon_lists{
-  width: 100% !important;
-  position: absolute;
-  bottom: 0;
-  border-top: 1px solid #e2e2e2;
-}
-
-.icon_lists li{
-  float:left;
-  width: 25%;
-  text-align: center;
-  list-style: none !important;
-  color:#999;
-  font-size: .22rem;
-}
-.icon_lists .name{
-  color:#797676;
-}
-.icon_lists .icon{
-  font-size: 25px;
-  line-height: 100px;
-  color:#9a9a9a;
-  -webkit-transition: font-size 0.25s ease-out 0s;
-  -moz-transition: font-size 0.25s ease-out 0s;
-  transition: font-size 0.25s ease-out 0s;
-
-}
-.icon_lists .icon:hover{
-  font-size: 30px;
 }
 
 

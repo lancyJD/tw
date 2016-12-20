@@ -32,12 +32,21 @@ var ref = wilddog.sync().ref('/data');
 export default {
 
   //获取首页数据
-  geIndextData(cb) {
-     ref.on("value", function(snapshot) {
-     	console.log(snapshot.val())
-	    cb(snapshot.val());
-	});
-
-  },
+  	geIndextData(cb) {
+  //    	ref.on("value", function(snapshot) {
+	 //     	console.log(snapshot.val())
+		//     cb(snapshot.val());
+		// });
+  	},
+  	addTodo(todo, cb) {
+  		
+     	ref.push({"todo":todo,"id":new Date().getTime()})
+	    .then(function(){
+	        console.info('set data success.')
+	    })
+	    .catch(function(err){
+	        console.info('set data failed', err.code, err);
+	    });
+    }
   
 }
