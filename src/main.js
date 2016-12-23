@@ -6,15 +6,6 @@ import store from './store'
 import * as filters from './filters'
 import App from './App'
 
-// import MuseUI from 'muse-ui'
-// import 'muse-ui/dist/muse-ui.css'
-// import 'muse-ui/dist/theme-carbon.css' // 使用 carbon 主题
-// import appbar from 'muse-components/appbar'
-
-// // ..
-// Vue.component(appbar.name, appbar)
-// Vue.component(avatar.name, avatar)
-// Vue.use(MuseUI)
 
 sync(store, router)
 
@@ -22,6 +13,8 @@ sync(store, router)
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
+
+
 /* eslint-disable no-new */
 const app = new Vue({
   router,

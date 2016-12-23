@@ -39,7 +39,7 @@ export default {
 		// });
   	},
   	addTodo(todo, cb) {
-  		
+  		var key = ref.key();
      	ref.push({"todo":todo,"id":new Date().getTime()})
 	    .then(function(){
 	        console.info('set data success.')
