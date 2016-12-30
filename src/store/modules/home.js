@@ -18,7 +18,7 @@ const mutations = {
     	state.obj.message = message
   	},
   	[types.ADD_TODO](state, todo) {
-  		state.obj.todo.push( {title:todo})
+  		state.obj.todo= todo
   	}
 
 

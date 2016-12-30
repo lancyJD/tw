@@ -1,42 +1,14 @@
 <template>
 	<div class='home-container'>
-
-	<!-- 	<swiper :options="swiperOption">
-	      <swiper-slide v-for='item in indexData'>
-	      	<img :src="item.imageUrl" />
-	      </swiper-slide>
-	      <div class="swiper-pagination" slot="pagination"></div>
-	    </swiper>
-	    <section>
-	    	<div class='master-video'>
-	    		<ul class='title'>
-	    			<li class='video-left'>教练视频</li>
-	    			<li class='video-rigth'>更多>></li>
-	    		</ul>
-	    	</div>
-	    </section> -->
-	   <!--  <section>
-	    	<div class='section'>
-	    		<input class='search' placeholder="请输入关键字搜索" @focus='inFocus' :value="message" @input="updateMessage">
-	    	</div>
-	    	<div class='seachHistory' v-show='isHaveStr'>
-	    		{{message}}
-	    	</div>
-	    </section> -->
-	    <section>
-	    	<div>
-	    		<input class='search add' placeholder="添加条目" :value="todo" @input="updateTodo"> <div @click='addTodo(todo)' class='todo'>添加</div>
-	    	</div>
-	    	<div v-for='item in todo' class='seachHistory' v-show='isHaveStr'>
-	    		<!-- {{item.}} -->
-	    	</div>
-	    </section>
+	  	<search></search>    
+	  	<section><div>大家好我就是台风。</div></section>
 	</div>
 </template>
 
 <script>
 import { swiper, swiperSlide, swiperPlugins } from 'vue-awesome-swiper'
 import { mapGetters, mapActions, mapMutations  } from 'vuex'
+import search from '../components/search'
 export default {
   data () {
     return {
@@ -46,7 +18,10 @@ export default {
             autoplay: 2000
         },
         keyWord: null,
-        isHaveStr: false
+        isHaveStr: false,
+        isFocus: false,
+        searchVal: "",
+        hasVal: false
       }
   },
 	
@@ -62,7 +37,8 @@ export default {
    components: {
     swiper,
     swiperSlide,
-    swiperPlugins
+    swiperPlugins,
+    search
   },
   methods: {
   		...mapActions([
@@ -78,7 +54,27 @@ export default {
 		inFocus:function(event) {
 			if (event) event.preventDefault()
 			this.isHaveStr = true;
-		}
+		},
+		s_input() {
+			console.log('>>>>>>>');
+            if (this.searchVal !== '') {
+                this.hasVal = true;
+            } else {
+                this.hasVal = false;
+            }
+        },
+        s_focus() {
+        	console.log('>>>2>>>>');
+            this.isFocus = true;
+        },
+        s_blur() {
+        	console.log('>>3>>>>>');
+            this.isFocus = false;
+        },
+        reset_val() {
+        	console.log('>>>>4>>>');
+            this.searchVal = ''
+        }
 	}
 };
 </script>
@@ -86,7 +82,7 @@ export default {
 <style lang='less' scoped>
 .home-container{
 	width:100%;
-	font-size: .14rem;
+	font-size: .2rem;
 	.swiper-container{
 	 	width: 100%;
     	height: auto;

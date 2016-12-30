@@ -15,12 +15,14 @@ export const get_index_data = ({commit}) => {
 		commit(types.GET_INDEX_DATA, data);
 	})
 }
+
+
 //添加todo
 export const addTodo = ({commit}, todo) => {
-	console.log(todo)
-	api.addTodo(todo, function(res){
+	// console.log(todo)
+	// api.addTodo(todo, function(res){
 
-	});
+	// });
 	commit(types.ADD_TODO, todo)
 }
 

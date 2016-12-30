@@ -1,11 +1,11 @@
 module.exports = [{
     index: 0,
     path: {
-        path: '/foo'
+        path: '/home'
     },
     hint: { type: "count", count: 0 }, //count,dot
     iconClass: 'icon-wechat',
-    text: '一元'
+    text: '微信'
 }, {
     index: 1,
     path: {
@@ -14,15 +14,15 @@ module.exports = [{
 
     hint: { type: "count", count: 0 },
     iconClass: 'icon-contact',
-    text: '发现'
+    text: '通讯录'
 }, {
     index: 2,
     path: {
-        path: '/find'
+        path: '/foo'
     },
     hint: { type: "dot", count: 99 },
     iconClass: 'icon-find',
-    text: 'xxx'
+    text: '发现'
 }, {
     index: 3,
     path: {

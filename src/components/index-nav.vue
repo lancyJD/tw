@@ -1,48 +1,41 @@
 <template>
 	<div class='nav-container'>
-    <ul class="icon_lists clear">
-           
-            <router-link  tag="li" to="/home">
-              <svg class="icon" aria-hidden="true">
-                  <use xlink:href="#icon-msnui-hot"></use>
-              </svg>
-              <div class="name">热门</div>
-             </router-link>
-            
-            <router-link  tag="li" to="/bar">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-20150325094323471easyiconnet"></use>
-                </svg>
-                <div class="name">檬课</div>
+        <nav>
+            <router-link v-for="item in index_nav" :to="item.path.path" @click="set_menu_active($index)">
+                <dt class="iconfont" :class="item.iconClass">
+                    <i v-if="item.hint.count" v-text="item.hint.count | get_prompt " :class="'_news-'+item.hint.type"></i> 
+                </dt>
+                <dd v-text="item.text"></dd>
             </router-link>
-             <router-link  tag="li" to="/foo">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-wo"></use>
-                </svg>
-                <div class="name">檬店</div>
-            </router-link>
-             <router-link  tag="li" to="/foo">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-shangdian"></use>
-                </svg>
-                <div class="name">我的</div>
-            </router-link>
-    </ul>
+        </nav>
+  </div>
 </template>
 
 <script>
-
+import '../assets/css/iconfont.css'
 import { mapGetters, mapActions } from 'vuex'
 export default {
   data () {
-    return {};
+    return {
+      isActive: true
+    };
+  },
+  filters: {
+      get_prompt(hint) {
+        alert(hint);
+          return hint.count
+      }
+
   },
   computed: mapGetters({
     index_nav: 'indexNav'
   }),
-  methods: mapActions([
-    'addToCart'
-  ]),
+  methods: {
+    ...mapActions([
+      'addToCart',
+      'set_menu_active'
+    ])
+  },
   created () {
     this.$store.dispatch('get_index_nav')
   }
@@ -50,58 +43,113 @@ export default {
 </script>
 
 <style lang='less'  scoped>
-.icon {
-  /* 通过设置 font-size 来改变图标大小 */
-  width: .5rem; height: .5rem;
-  /* 图标和文字相邻时，垂直对齐 */
-  /* 通过设置 color 来改变 SVG 的颜色/fill */
-  fill: currentColor;
-  /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
-     normalize.css 中也包含这行 */
-  overflow: hidden;
-}
-.nav-container{
- /* height: 100vh;*/
+nav {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    height: 50px;
+    padding-top: 8px;
+    background: #f9f9f9;
+    font-size: 12px;
 }
 
+nav a {
+    user-select: none;
+    -webkit-user-select: none;
+    flex-grow: 1;
+    text-align: center;
+    line-height: 1;
+}
 
-/* nav dl.v-link-active dl,
-nav dl.v-link-active dt {
+nav a.router-link-active a,
+nav a.router-link-active dt {
     color: #0bb908;
-} */
-
-
-.icon_lists{
-  width: 100% !important;
-  position: absolute;
-  bottom: 0;
-  border-top: 1px solid #e2e2e2;
 }
 
-.icon_lists li{
-  float:left;
-  width: 25%;
-  text-align: center;
-  list-style: none !important;
-  color:#999;
-  font-size: .22rem;
-}
-.icon_lists .name{
-  color:#797676;
-}
-.icon_lists .icon{
-  margin-top: .1rem;
-  font-size: 25px;
-  line-height: 100px;
-  color:#9a9a9a;
-  -webkit-transition: font-size 0.25s ease-out 0s;
-  -moz-transition: font-size 0.25s ease-out 0s;
-  transition: font-size 0.25s ease-out 0s;
-
-}
-.icon_lists .icon:hover{
-  font-size: 30px;
+nav dt {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    margin: 0 auto;
+    font-size: 28px;
+    color: #797979;
+    margin-bottom: 2px;
 }
 
+nav dd {
+    color: #929292;
+    transform-origin: 50% 0;
+    transform: scale(0.9);
+}
+
+nav ._news-dot {
+    right: -2px;
+    top: -3px;
+    width: 11px;
+    height: 11px;
+}
+
+ ._news-count {
+    position: absolute;
+    font-style: initial;
+    font-family: PingFang SC, Hiragino Sans GB, Arial, Microsoft YaHei, Helvetica;
+    right: -9px;
+    top: -5px;
+    z-index: 2;
+    padding: 0 4px;
+    width: auto;
+    min-width: 18px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 9px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+    background-color: #f43531;
+}
+
+
+
+/*消息气泡*/
+
+._news-count {
+    position: absolute;
+    font-style: initial;
+    font-family: PingFang SC, Hiragino Sans GB, Arial, Microsoft YaHei, Helvetica;
+    right: -9px;
+    top: -5px;
+    z-index: 2;
+    padding: 0 4px;
+    width: auto;
+    min-width: 18px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 9px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+    background-color: #f43531;
+}
+
+.app-footer ._news-count {
+    left: 100%;
+    margin-left: -10px;
+    right: initial;
+}
+
+._news-dot {
+    position: absolute;
+    right: -3px;
+    top: -3px;
+    width: 10px;
+    height: 10px;
+    z-index: 2;
+    border-radius: 50%;
+    color: #ffffff;
+    text-align: center;
+    background-color: red;
+    background-color: #f43531;
+    font-size: 0;
+}
 
 </style>

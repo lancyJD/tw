@@ -25,6 +25,7 @@
     "vue-server-renderer": "^2.0.0",
     "vuex": "^2.0.0",
     "vuex-router-sync": "^3.0.0",
+    "webpack-zepto": "0.0.1",
     "wilddog": "^2.3.9"
   },
   "devDependencies": {
