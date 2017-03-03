@@ -21,7 +21,9 @@ module.exports = merge(baseWebpackConfig, {
       'process.env': config.dev.env
     }),
     new webpack.ProvidePlugin({
-      $: "webpack-zepto"
+      $: "webpack-zepto",
+      Vue: "vue",
+      weui: 'src/comm/weui'
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.optimize.OccurenceOrderPlugin(),

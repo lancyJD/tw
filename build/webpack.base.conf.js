@@ -31,7 +31,7 @@ module.exports = {
       'getters':path.resolve(__dirname,'../src/store/getters'),
       'actions':path.resolve(__dirname,'../src/store/actions'),
       'mock':path.resolve(__dirname,'../src/mock'),
-      'muse-components': 'muse-ui/src'
+      // 'muse-components': 'muse-ui/src'
         
     }
   },
@@ -48,7 +48,15 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         include: projectRoot,
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        query: {
+
+            presets: ['es2015'],
+
+            plugins: ['transform-runtime']
+
+        }
+
       },
       {
         test: /\.json$/,
@@ -80,7 +88,7 @@ module.exports = {
     loaders: utils.cssLoaders({ sourceMap: useCssSourceMap }),
     postcss: [
       require('autoprefixer')({
-        browsers: ['last 2 versions']
+        browsers: ['last 10 versions']
       })
     ]
   }

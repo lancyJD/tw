@@ -1,0 +1,193 @@
+@import "../Mixins";
+.edit-info {
+  img {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: .2rem auto;
+    @include radius(50%);
+  }
+  > ul {
+    padding: .2rem;
+    > li {
+      position: relative;
+      height: 1rem;
+      padding: 0 .2rem;
+      margin-bottom: .2rem;
+      line-height: 1.2rem;
+      font-size: .36rem;
+      @include radius();
+      background-color: #fff;
+      color: #868686;
+      span {
+        width: 2rem;
+        text-align: center;
+      }
+      input {
+        position: absolute;
+        top: 0;
+        right: .6rem;
+        width: 3.5rem;
+        height: 1rem;
+        border: 0;
+        text-align: right;
+        line-height: inherit;
+        color: #868686;
+      }
+      .is-field {
+        position: absolute;
+        top: 0;
+        right: .6rem;
+        width: 4rem;
+        height: 1rem;
+        line-height: 1.1rem;
+        @include text-line();
+        small {
+          display: inline-block;
+          font-size: .3rem;
+          color: #868686;
+          padding-right: .1rem;
+          margin-right: .1rem;
+          height: .25rem;
+          line-height: .25rem;
+          border-right: 1px solid #868686;
+        }
+        small:last-child{
+          border: none;
+        }
+      }
+      .weui-cell__bd {
+        .weui-select {
+          direction: rtl;
+          text-align: right;
+          color: #868686;
+          padding-right: .4rem;
+        }
+        &:after {
+          display: none;
+        }
+      }
+      .is-select {
+        position: absolute;
+        top: 0;
+        right: .6rem;
+        width: 4rem;
+        height: 1rem;
+        .weui-cell__bd {
+          @include flex-box;
+          select {
+            direction: rtl;
+            width: 2rem;
+            border: 0;
+            font-size: .26rem;
+            color: #868686;
+            background: none;
+          }
+        }
+        &:before{
+          display: none;
+        }
+      }
+      .bg {
+        @include position-fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        background-color: rgba(#000, .5);
+      }
+      .field-ul {
+        @include position-fixed;
+        bottom: 0;
+        height: 6rem;
+        margin-top: -3.5rem;
+        background-color: #fff;
+        z-index: 110;
+        overflow: auto;
+        li {
+          position: relative;
+          height: .94rem;
+          line-height: .95rem;
+          font-size: .28rem;
+          &:after {
+            @include border_1pt_btm(#d5d5d5, 1);
+          }
+          label {
+            display: inline-block;
+            position: relative;
+            width: 3.5rem;
+            height: 100%;
+            padding-left: .6rem;
+            color: #d5d5d5;
+          }
+          input {
+            position: absolute;
+            top: .1rem;
+            right: .4rem;
+            width: .74rem;
+            height: .74rem;
+            z-index: 1;
+            border: 0;
+            background: url("../../images/icon-check.png") no-repeat center;
+            background-size: .5rem auto;
+          }
+          input:checked {
+            background-image: url("../../images/icon-checked.png");
+          }
+          input:checked + label {
+            color: #53cbbd;
+          }
+        }
+        li:last-child {
+          &:after {
+            @include border_1pt_btm(#fff, 0);
+          }
+        }
+      }
+
+    }
+    li.has-row {
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: .2rem;
+        width: .3rem;
+        height: 1rem;
+        background: url("../../images/down-flog.png") no-repeat center;
+        background-size: .28rem .16rem;
+        transform: rotate(-90deg)
+      }
+    }
+    li.al {
+      height: auto;
+      h2 {
+        overflow: hidden;
+        height: .8rem;
+        line-height: .82rem;
+        position: relative;
+        font-size: .28rem;
+        color: #333;
+        &:after {
+          @include border_1pt_btm()
+        }
+      }
+      p {
+        padding: .2rem 0;
+        font-size: .24rem;
+        color: #868686;
+        line-height: 1.5;
+      }
+      textarea {
+        width: 100%;
+        height: 2rem;
+        margin-top: .2rem;
+        font-size: .26rem;
+        color: #d5d5d5;
+        border: 0;
+      }
+    }
+  }
+}
+
+

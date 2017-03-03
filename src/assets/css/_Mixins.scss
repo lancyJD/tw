@@ -1,0 +1,290 @@
+@charset "UTF-8";
+@import 'Variables';
+
+// rem函数
+$rem_grid: 100;
+@function rem($val) {
+  $rem: $val / $rem_grid +'rem';
+  @return #{$rem};
+}
+
+// box-sizing
+@mixin border-box {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+//阴影
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+// 文字省略
+@mixin text-line( $num : false) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @if $num {
+    display: -webkit-box;
+    -webkit-line-clamp: $num;
+    -webkit-box-orient: vertical;
+  } @else {
+    white-space: nowrap;
+  }
+}
+
+// 清除浮动
+@mixin clea-fix {
+  &:after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+// flexbox 布局
+@mixin flex-box {
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($num : 1) {
+  flex: $num;
+  -webkit-flex: $num;
+  box-flex: $num;
+  -webkit-box-flex: $num;
+}
+
+//垂直居中
+@mixin align-center {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  box-flex: center;
+  align-items: center;
+}
+
+//水平居中
+@mixin pack-center {
+  -webkit-justify-content: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+//两端对齐
+@mixin pack-justify {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+}
+
+//图片设置成块
+@mixin img($w, $h, $block) {
+  width: rem($w);
+  height: rem($h);
+  display: $block;
+  border: none;
+}
+
+//icon设置
+@mixin bgImg($w, $h, $url, $block: block) {
+  display: $block;
+  background: url($url) no-repeat;
+  background-size: rem($w) rem($h);
+}
+
+// rem_box
+@mixin rem_box( $w , $h ) {
+  width: rem($w);
+  height: rem($h);
+}
+
+//border_common
+@mixin border_common {
+  content: '';
+  display: block;
+  position: absolute;
+  pointer-events: none;
+}
+
+//border bottom
+@mixin border_1pt_btm( $color: #ddd, $width : 1 ) {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: $width * 1px;
+  background: $color;
+  @include border_common;
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    & {
+      transform: scaleY(0.5);
+      transform-origin: 50% 100%;
+    }
+  }
+}
+
+// border top
+@mixin border_1pt_top( $color: #ddd, $width : 1 ) {
+  left: 0;
+  right: 0;
+  top: 0;
+  height: $width * 1px;
+  background: $color;
+  @include border_common;
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    & {
+      transform: scaleY(0.5);
+      transform-origin: 50% 0;
+    }
+  }
+}
+
+// border left
+@mixin border_1pt_left( $color: #ddd, $width : 1 , $right : false) {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: $width * 1px;
+  background: $color;
+  @include border_common;
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    & {
+      transform: scaleX(0.5);
+      @if $right == false {
+        transform-origin: 0 50%;
+      } @else {
+        transform-origin: 100% 50%;
+      }
+    }
+  }
+}
+
+// border right
+@mixin border_1pt_right( $color: #ddd, $width : 1 , $left : false) {
+  top: 0;
+  bottom: 0;
+  right: -1px;
+  width: $width * 1px;
+  background: $color;
+  @include border_common;
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    & {
+      transform: scaleX(0.5);
+      @if $left == false {
+        transform-origin: 0 50%;
+      } @else {
+        transform-origin: 100% 50%;
+      }
+    }
+  }
+}
+
+// border
+@mixin border_1pt( $color: #ddd, $width : 1px) {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: $width solid $color;
+  @include border_common;
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    & {
+      right: -100%;
+      bottom: -100%;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+    }
+  }
+}
+
+// border-radius
+@mixin radius( $radius: .06rem ) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin radius-four( $radius1, $radius2, $radius3, $radius4 ) {
+  -webkit-border-radius: $radius1 $radius2 $radius3 $radius4;
+  border-radius: $radius1 $radius2 $radius3 $radius4;
+}
+
+// 教练客户端按钮
+@mixin coach-btn {
+  background-color: #fc0;
+  color: #333;
+  @include radius();
+}
+
+//position-fixed
+@mixin position-fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 7.5rem;
+  margin: 0 auto;
+}
+
+@keyframes jianyin {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes jianyin /* Safari 和 Chrome */
+{
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.jianyinanicss {
+  animation: jianyin 1.5s 1;
+  -webkit-animation: jianyin 1.5s 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes imgAnimation {
+  0% {
+    opacity: 0
+  }
+  50% {
+    opacity: 0.5
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+@-webkit-keyframes imgAnimation {
+  0% {
+    opacity: 0
+  }
+  50% {
+    opacity: 0.5
+  }
+  100% {
+    opacity: 1
+  }
+}
+

@@ -1,0 +1,153 @@
+@import "../Mixins";
+.invest-msg {
+  .top-nav {
+    @include position-fixed;
+    top: 0;
+    z-index: 12;
+    height: .94rem;
+    background-color: #fff;
+    &:after {
+      @include border_1pt_btm()
+    }
+    li {
+      position: relative;
+      float: left;
+      width: 33.33%;
+      height: .94rem;
+      line-height: .95rem;
+      text-align: center;
+      color: #d0d0d0;
+      &:after {
+        content: '';
+        position: absolute;
+        top: .3rem;
+        right: 0;
+        width: 1px;
+        height: .34rem;
+        background-color: #d5d5d6;
+      }
+    }
+    li.on {
+      color: #53cbbd;
+    }
+    li:last-child {
+      &:after {
+        width: 0;
+      }
+    }
+  }
+  .msg-ul {
+    padding: 1.1rem .2rem;
+    li {
+      position: relative;
+      padding: .2rem;
+      margin-bottom: .2rem;
+      background-color: #fff;
+      @include radius();
+      a{
+        @include flex-box;
+        img {
+          width: 1.2rem;
+          height: 1.2rem;
+          margin-right: .2rem;
+          @include radius(50%)
+        }
+        div {
+          width: 6rem;
+          h2 {
+            width: 3.8rem;
+            @include text-line();
+            font-size: .3rem;
+            color: #333;
+            span {
+              font-size: .24rem;
+              color: #666;
+            }
+          }
+          p {
+            font-size: .24rem;
+            color: #666;
+            width: 3.8rem;
+            @include text-line()
+          }
+          > div {
+            width: 3.8rem;
+            small {
+              padding-right: .1rem;
+              margin-right: .1rem;
+              position: relative;
+              font-size: .24rem;
+              color: #666;
+              &:after {
+                @include border_1pt_right(#666, 1)
+              }
+            }
+            small:last-child {
+              &:after {
+                @include border_1pt_right(#666, 0)
+              }
+            }
+          }
+        }
+      }
+      button {
+        position: absolute;
+        right: .2rem;
+        width: 1.4rem;
+        height: .5rem;
+        text-align: center;
+        line-height: .52rem;
+        font-size: .28rem;
+        color: #fff;
+        @include radius();
+      }
+      button.y {
+        top: .3rem;
+        background-color: #53cbbd;
+      }
+      button.n {
+        top: 1rem;
+        background-color: #cba653;
+      }
+      button.x {
+        top: .3rem;
+        color: #444;
+        background-color: #ccc;
+      }
+    }
+  }
+}
+
+.system-msg{
+  ul{
+    padding: .2rem;
+    li{
+      position: relative;
+      padding: .2rem .2rem .2rem .6rem;
+      margin-bottom: .2rem;
+      background-color: #fff;
+      text-align: justify;
+      @include radius();
+      h2{
+        font-size: .3rem;
+        color: #333;
+      }
+      p{
+        font-size: .26rem;
+        color: #666;
+      }
+    }
+    li.on{
+      &:after{
+        content: '';
+        position: absolute;
+        top: .3rem;
+        left: .2rem;
+        width: .2rem;
+        height: .2rem;
+        background-color: red;
+        @include radius(50%);
+      }
+    }
+  }
+}

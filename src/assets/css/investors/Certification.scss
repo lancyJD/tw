@@ -1,0 +1,485 @@
+@import "../Mixins";
+.cert-ul {
+  padding: .2rem;
+  li {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 1.46rem;
+    margin-bottom: .2rem;
+    line-height: 1.46rem;
+    font-size: .36rem;
+    background-color: #fff;
+    @include flex-box;
+    @include radius(.12rem);
+    span {
+      width: 1.6rem;
+      background-color: #53cbbd;
+      color: #fff;
+      text-align: center;
+      margin-right: 1rem;
+      font-size: .28rem;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: .2rem;
+      width: .6rem;
+      height: 100%;
+      background: url("../../images/icon-check.png") no-repeat center;
+      background-size: .52rem .52rem;
+    }
+  }
+  li.active {
+    &:before {
+      background-image: url("../../images/check-ok.png");
+    }
+  }
+}
+//第一步 名片扫描
+.bcs-ul {
+  padding: .2rem .75rem;
+  background-color: #fff;
+  li {
+    width: 100%;
+    margin-bottom: .2rem;
+    display: inline-block;
+    overflow: hidden;
+    span, .weui-cell__hd {
+      float: left;
+      width: 1.6rem;
+      font-size: .36rem;
+      color: #868686;
+      line-height: .74rem;
+    }
+    input, select {
+      float: left;
+      width: 4rem;
+      height: .74rem;
+      padding: 0 .2rem;
+      background: rgba(0, 0, 0, 0.10);
+      box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.14);
+      border: 0;
+      @include radius();
+    }
+    .weui-cell__bd {
+      height: .74rem;
+      .weui-select {
+        width: 4.4rem;
+      }
+      &:after {
+        top: .08rem;
+        right: -.05rem;
+        width: .8rem;
+        height: 100%;
+        border: 0;
+        background: url("../../images/icon-xl.png") no-repeat center;
+        background-size: .74rem auto;
+        transform: inherit;
+        -webkit-transform: inherit;
+      }
+    }
+    .mp-img {
+      width: 100%;
+      @include flex-box;
+      .add-img-box {
+        width: 2.9rem;
+        i {
+          position: relative;
+          display: inline-block;
+          width: 2.9rem;
+          height: 1.6rem;
+          background: rgba(0, 0, 0, 0.3);
+          &:after, &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-color: #fff;
+          }
+          &:after {
+            width: .6rem;
+            height: 2px;
+            margin: -1px 0 0 -.3rem;
+          }
+          &:before {
+            height: .6rem;
+            width: 2px;
+            margin: -.3rem 0 0 -1px;
+          }
+          img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+          }
+        }
+        p {
+          font-size: .24rem;
+          color: #868686;
+          text-align: center;
+        }
+      }
+      .add-img-box.ar {
+        margin-left: .3rem;
+      }
+    }
+  }
+  li.sel{
+    position: relative;
+    select{
+      width: 4.4rem;
+    }
+    i{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: .8rem;
+      height: 100%;
+      display: inline-block;
+      background: url("../../images/icon-xl.png") no-repeat center;
+      background-size: .74rem auto;
+    }
+  }
+}
+//第二步 基本信息
+.page-ff {
+  background-color: #fff;
+  overflow: hidden;
+}
+.info-img {
+  overflow: hidden;
+  position: relative;
+  width: 1.52rem;
+  height: 1.52rem;
+  margin: .4rem auto .2rem;
+  border-radius: 100%;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.60);
+  }
+  img {
+    width: 1.52rem;
+    height: 1.52rem;
+    display: inline-block;
+  }
+  p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    line-height: 1.52rem;
+    color: #fff;
+    font-size: .24rem;
+    text-align: center;
+  }
+}
+.bi-ul {
+  padding: .2rem .75rem;
+  li {
+    width: 100%;
+    margin-bottom: .2rem;
+    @include flex-box;
+    .bi-title, .weui-cell__hd {
+      width: 1.6rem;
+      font-size: .36rem;
+      color: #868686;
+      text-align: justify;
+      .weui-label {
+        width: 1.6rem;
+        text-align: center;
+      }
+      p {
+        font-size: .2rem;
+        text-align: center;
+      }
+    }
+    .weui-cell__bd {
+      @include flex-box;
+      &:after {
+        display: none;
+      }
+    }
+    .weui-cell__bd select {
+      width: 1.81rem;
+      height: .74rem;
+      padding: .2rem;
+      background: rgba(155, 155, 155, 0.19);
+      border: 0;
+      box-shadow: inset 0 2px 6px 0 rgba(0, 0, 0, 0.11);
+      @include radius()
+    }
+    input {
+      width: 1.4rem;
+      height: .34rem;
+      padding: .2rem;
+      background: rgba(155, 155, 155, 0.19);
+      border: 0;
+      box-shadow: inset 0 2px 6px 0 rgba(0, 0, 0, 0.11);
+      @include radius()
+    }
+    .sx {
+      width: .4rem;
+      height: .76rem;
+      span, small {
+        float: left;
+        display: inline-block;
+        width: .4rem;
+        height: .38rem;
+      }
+      span {
+        background: url("../../images/icon-xs.png") no-repeat center;
+        background-size: .36rem auto;
+      }
+      small {
+        background: url("../../images/icon-xxx.png") no-repeat center;
+        background-size: .36rem auto;
+      }
+    }
+    textarea {
+      width: 4rem;
+      height: 2rem;
+      padding: .2rem;
+      background: rgba(155, 155, 155, 0.19);
+      box-shadow: inset 0 2px 6px 0 rgba(0, 0, 0, 0.11);
+      border: 0;
+      @include radius()
+    }
+    //关注领域按钮
+    .swiper-container {
+      padding-left: .2rem;
+      padding-bottom: .4rem;
+      .bi-btn {
+        display: inline-block;
+        position: relative;
+        z-index: 3;
+        width: 1.7rem;
+        height: .68rem;
+        margin: 0 .2rem .2rem 0;
+        text-align: center;
+        color: #fff;
+        line-height: .69rem;
+        font-size: .28rem;
+        overflow: hidden;
+        @include text-line();
+        input{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          background: #ababab;
+          color: #fff;
+          overflow: hidden;
+          @include radius();
+        }
+        input:checked{
+          background: #53cbbd;
+        }
+      }
+      .bi-btn.checked {
+        background: #53cbbd;
+      }
+      .swiper-pagination-bullets {
+        bottom: 0;
+      }
+      .swiper-pagination-bullet-active {
+        background: #53cbbd;
+      }
+    }
+    .check-box{
+      width: 6rem;
+      min-height: .4rem;
+      padding: .2rem;
+      background: rgba(155, 155, 155, 0.19);
+      box-shadow: inset 0 2px 6px 0 rgba(0, 0, 0, 0.11);
+      border: 0;
+      @include radius();
+      .check-btn{
+        display: inline-block;
+        padding: .1rem;
+        margin: 0 .2rem .2rem 0;
+        text-align: center;
+        color: #fff;
+        font-size: .24rem;
+        @include radius();
+        background: #53cbbd;
+      }
+    }
+  }
+  li.gz {
+    position: relative;
+    padding-bottom: .1rem;
+    .bi-title {
+      width: 100%;
+    }
+    span, small {
+      font-size: .2rem;
+    }
+    small {
+      position: absolute;
+      right: 0;
+      bottom: .12rem;
+    }
+    &:after {
+      @include border_1pt_btm()
+    }
+    .bg {
+      @include position-fixed;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      background-color: rgba(#000, .5);
+    }
+    .field-ul {
+      @include position-fixed;
+      bottom: 0;
+      height: 6rem;
+      background-color: #fff;
+      z-index: 110;
+      overflow: auto;
+      li {
+        position: relative;
+        height: .94rem;
+        line-height: .95rem;
+        font-size: .28rem;
+        &:after {
+          @include border_1pt_btm(#d5d5d5, 1);
+        }
+        label {
+          display: inline-block;
+          position: relative;
+          width: 3.5rem;
+          height: 100%;
+          padding-left: .6rem;
+          color: #d5d5d5;
+        }
+        input {
+          position: absolute;
+          top: .1rem;
+          right: .4rem;
+          width: .74rem;
+          height: .74rem;
+          z-index: 1;
+          border: 0;
+          background: url("../../images/icon-check.png") no-repeat center;
+          background-size: .5rem auto;
+          box-shadow: initial;
+        }
+        input:checked {
+          background-image: url("../../images/icon-checked.png");
+        }
+        input:checked + label {
+          color: #53cbbd;
+        }
+      }
+      li:last-child {
+        &:after {
+          @include border_1pt_btm(#fff, 0);
+        }
+      }
+    }
+  }
+}
+.next-btn {
+  display: block;
+  width: 5.6rem;
+  height: .86rem;
+  margin: .5rem auto 1rem;
+  font-size: .36rem;
+  color: #fff;
+  text-align: center;
+  line-height: .88rem;
+  background: #53cbbd;
+  @include radius()
+}
+//第三步 投资信息
+
+.ii-box {
+  overflow: hidden;
+  position: relative;
+  width: 7.1rem;
+  padding: .2rem 0;
+  margin: .2rem auto;
+  background: #fff;
+  @include radius(.1rem);
+  &:after {
+    content: '';
+    position: absolute;
+    top: -.5rem;
+    left: -.5rem;
+    width: .5rem;
+    height: 1.5rem;
+    background: #53cbbd;
+    transform: rotate(45deg)
+  }
+  p {
+    font-size: .36rem;
+    color: #868686;
+    text-align: center;
+    span {
+      font-size: .2rem;
+    }
+  }
+  input, textarea {
+    display: block;
+    width: 5.6rem;
+    height: .72rem;
+    margin: 0 auto .1rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.10);
+    box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.14);
+    border: 0;
+    @include radius()
+  }
+  textarea {
+    height: 2.5rem;
+    padding: .2rem;
+    text-align: left;
+  }
+}
+//
+.in-ok {
+  text-align: center;
+  img {
+    display: inline-block;
+    width: 2.26rem;
+    height: 2.52rem;
+    margin: 2rem auto .5rem;
+  }
+  .in-ok-p {
+    font-size: .36rem;
+    color: #000;
+  }
+  .in-ok-p1 {
+    font-size: .28rem;
+    color: #bfbfbf;
+    margin: .2rem auto 2rem;
+  }
+  .investors-ok-btn {
+    display: inline-block;
+    width: 5.6rem;
+    height: .86rem;
+    font-size: .36rem;
+    color: #868686;
+    text-align: center;
+    line-height: .88rem;
+    background: none;
+    border: 1px solid #53cbbd;
+    @include radius();
+  }
+}
+
+

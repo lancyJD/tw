@@ -1,0 +1,75 @@
+.c-registry{
+	.head{
+		text-align: center;
+		height: 3.5rem;
+		width: 100%;
+	}
+	img{
+		width:1.44rem;
+		height:1.44rem;
+		margin-top: 1.36rem;
+	}
+
+	.input-info{
+		margin:0 auto;
+		border-bottom: 0.5px solid #c7c7c7;
+		width: 70%;
+		height: 1rem;
+		margin-top: .5rem;
+		input{
+			float: left;
+			border:0;
+			width: 70%;
+			height: 1rem;
+			font-size: .32rem;
+			background-color:transparent;
+			margin-left: .40rem;
+		}
+		.phone-code{
+			width:58%;
+		}
+		.icon{
+			float: left;
+			height: 1rem;
+			width: .4rem;
+			background-repeat: no-repeat;
+			background-position: center;
+			&.phone{
+				background-size: 90% 70%;
+				background-image: url('../../images/phone.png');
+			}
+			&.code{
+				background-size: 100% 50%;
+				background-image: url('../../images/phone-code.png');
+			}
+		}
+		.get-code{
+			width: 1.4rem;
+			height: .86rem;
+			line-height: .86rem;
+			font-size: .36rem;
+			float: left;
+			margin-top: .1rem
+		}
+
+	}
+	.margins{
+		margin-top: .58rem;
+		font-size: .36rem;
+		height: .86rem;
+		line-height: .86rem;
+	}
+	.marginsL{
+		height: .86rem;
+		line-height: .86rem;
+		margin-top: .52rem;
+		color:#868686;
+		font-size: .36rem;
+		background-color: #f6f6f6;
+		border: 1px solid #53cbbd;
+	}
+
+	.bg{
+		background:#bfbfbf;
+	}
+}

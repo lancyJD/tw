@@ -1,0 +1,107 @@
+@import "../_Mixins.scss";
+.me {
+  .mine {
+    height: 2.06rem;
+    width: 95%;
+    margin: .2rem auto 0;
+    background-color: #fff;
+    border-radius: .04rem;
+    .row1 {
+      height: .7rem;
+      width: 96%;
+      a {
+        font-size: 14px;
+        color: #c7c7c7;
+        letter-spacing: 0;
+        text-align: center;
+        float: right;
+        height: .7rem;
+        line-height: .7rem;
+      }
+    }
+    .row2 {
+      .row-img {
+        float: left;
+        height: 1.36rem;
+        width: 21%;
+      }
+      .row-info {
+        float: left;
+        width: 74%;
+      }
+      .row-info-intro {
+        height: .7rem;
+        display: flex;
+        margin: 0 auto;
+        overflow: hidden;
+        text-overflow: hidden;
+        font-size: .24rem;
+        word-break: break-all;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        color: #53cbbd;
+      }
+      i {
+        height: .32rem;
+        background: url('../../images/vip-v.png') no-repeat center;
+        background-size: .32rem .32rem;
+        width: .32rem;
+        position: absolute;
+        top: 1.3rem;
+        left: 1.1rem;
+      }
+      img {
+        height: .92rem;
+        width: .92rem;
+        border-radius: 50%;
+        margin-left: .34rem;
+      }
+    }
+
+  }
+  .mine-menu {
+    width: 95%;
+    background-color: #fff;
+    height: auto;
+    margin: .2rem auto 0;
+    border-radius: .12rem;
+    ul {
+      img {
+        float: left;
+        height: .34rem;
+        width: .32rem;
+        margin: .3rem .18rem 0 .3rem;
+      }
+      li {
+        height: 1rem;
+        line-height: 1rem;
+        width: 95%;
+        background: url('../../images/right-log.png') no-repeat 99% 50%;
+        background-size: 3% 40%;
+      }
+      li:after{
+        content: " ";
+          position: absolute;
+          margin: 0 auto;
+          left: .4rem;
+          top: 3.3rem;
+          width: 90%;
+          height: 1px;
+          border-top: 1px solid #D9D9D9;
+          color: #D9D9D9 ;
+          -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+          -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+          display: inline-block;
+      }
+      li:last-child {
+        &:after {
+          border: 0
+        }
+      }
+    }
+
+  }
+}

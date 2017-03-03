@@ -2,12 +2,15 @@ import api from '../api/api'
 import * as types from './mutation-types'
 
 //index-nav
-export const get_index_nav = ({ commit }) => {
+export const get_index_nav = ({ commit }, type) => {
     let index_nav = require('../mock/index-nav')
-    commit('SET_MENU', index_nav)
+    let index_nav_tmp = index_nav.investor
+    commit('SET_MENU', index_nav_tmp)
 }
-export const set_menu_active = ({ commit }, _index) => {
-    commit('SET_MENU_ACTIVE', _index)
+
+
+export const set_menu_active = ({ commit }, nav) => {
+    commit('SET_MENU_ACTIVE', nav)
 }
 
 export const get_index_data = ({commit}) => {
@@ -15,19 +18,21 @@ export const get_index_data = ({commit}) => {
 		commit(types.GET_INDEX_DATA, data);
 	})
 }
-
-
-//添加todo
-export const addTodo = ({commit}, todo) => {
-	// console.log(todo)
-	// api.addTodo(todo, function(res){
-
-	// });
-	commit(types.ADD_TODO, todo)
+export const get_starup_list = ({commit}, params) =>{
+    api.getStartUp(params, function(data) {
+        commit(types.STAR_UP_LIST, data)
+    })
 }
 
+export const more_get_starup_list = ({commit}, params) =>{
+    api.getStartUp(params, function(data) {
+        commit(types.MORE_STAR_UP_LIST, data)
+    })
+}
+
+
 // //向外导出统一的action方法
-// function makeAction (type) {
-//   return ({ dispatch }, ...args) => dispatch(type, ...args)
-// }
+function makeAction (type) {
+  return ({ dispatch }, ...args) => dispatch(type, ...args)
+}
 
