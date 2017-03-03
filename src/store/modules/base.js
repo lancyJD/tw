@@ -2,7 +2,15 @@ import * as types from '../mutation-types'
 
 let state = {
     backPath: '',
-    index_nav:[{
+    index_nav: JSON.parse(window.sessionStorage.getItem(types.INDEX_NAV)),
+    menu_active: { text: "", index: 0 },
+    userInfo: JSON.parse(window.sessionStorage.getItem(types.USER_INFO)) || {},
+    type: JSON.parse(window.sessionStorage.getItem(types.SET_TYPE)) || 1,
+}
+const mutations = {
+    [types.SET_MENU](state, index_nav) {
+        state.index_nav  = index_nav
+        window.sessionStorage.setItem(types.INDEX_NAV, JSON.stringify([{
         index: 0,
         path: {
             path: '/home'
@@ -32,15 +40,7 @@ let state = {
         activeClass: 'me-active',
         text: '代理',
         isActive: false
-    }],
-    menu_active: { text: "", index: 0 },
-    userInfo: JSON.parse(window.sessionStorage.getItem(types.USER_INFO)) || {},
-    type: JSON.parse(window.sessionStorage.getItem(types.SET_TYPE)) || 1,
-}
-const mutations = {
-    [types.SET_MENU](state, index_nav) {
-        state.index_nav  = index_nav
-        window.sessionStorage.setItem(types.INDEX_NAV, JSON.stringify(index_nav));
+    }]));
     },
     [types.SET_MENU_ACTIVE](state, _index) {
         let index = state.index_nav

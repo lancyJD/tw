@@ -41,8 +41,10 @@ export default {
     },
     watch:{
         path:function(val){
+            console.log(val)
             for (var i = this.index_nav.length - 1; i >= 0; i--) {
                 if(this.path == this.index_nav[i].path.path){
+                    console.log('>>>>>>>>>>>>>>>')
                     this.set_menu_active(this.index_nav[i].index)
                 }
             }
