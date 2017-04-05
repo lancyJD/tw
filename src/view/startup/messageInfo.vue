@@ -6,9 +6,12 @@
                发顺丰的撒
            </div>
            <div class='desc'>
-               fdsafdsafdsafdsa
+               作用：fdsafdsafdsafdsa
            </div>
-           <div class="check-exchange" >购买</div>
+           <div class='desc'>
+               <span>￥100</span>
+           </div>
+           <div class="check-exchange">购买</div>
        </div>
        <div class='shop-list'>
            <img src="../../assets/images/demo.png">
@@ -16,9 +19,12 @@
                发顺丰的撒
            </div>
            <div class='desc'>
-               fdsafdsafdsafdsa
+              作用：fdsafdsafdsafdsa
            </div>
-           <div class="check-exchange" >购买</div>
+           <div class='desc'>
+               <span>￥100</span>
+           </div>
+           <div class="check-exchange">购买</div>
        </div>
     </div>
 </template>
@@ -89,6 +95,9 @@
             &.first{
                 margin-top: .2rem;
             }
+            span{
+              color:#FF2424;
+            }
         }
         .check-exchange{
             width: 20%;
@@ -97,7 +106,7 @@
             border:1px solid #d5d5d5;
             text-align: center;
             margin-right: .5rem;
-            margin-top: .8rem;
+            margin-top: .5rem;
         }
     }
 }

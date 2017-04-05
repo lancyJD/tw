@@ -5,7 +5,6 @@ import index_nav from '../mock/index-nav'
 
 // import Foo from '../components/Foo.vue'
 import Home from '../view/home'
-import context from '../view/dialog-badge-context'
 import Registry from '../view/startup/registry'
 import InvesitDetail from '../view/startup/invesit-detail'
 //投资人
@@ -70,7 +69,6 @@ const routes = [
         isNeedAuth: false
     }
     },
-    {path: '/context', component: context},
     {
         path: '/registry/:type',
         name: 'registry',

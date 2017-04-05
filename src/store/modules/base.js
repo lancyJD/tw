@@ -9,8 +9,7 @@ let state = {
 }
 const mutations = {
     [types.SET_MENU](state, index_nav) {
-        state.index_nav  = index_nav
-        window.sessionStorage.setItem(types.INDEX_NAV, JSON.stringify([{
+        index_nav = [{
         index: 0,
         path: {
             path: '/home'
@@ -40,7 +39,9 @@ const mutations = {
         activeClass: 'me-active',
         text: '代理',
         isActive: false
-    }]));
+    }]
+        state.index_nav  = index_nav
+        window.sessionStorage.setItem(types.INDEX_NAV, JSON.stringify(index_nav));
     },
     [types.SET_MENU_ACTIVE](state, _index) {
         let index = state.index_nav

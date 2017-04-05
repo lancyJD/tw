@@ -9,15 +9,6 @@
                         </dt>
                         <dd :class="[item.isActive ? 'no-logon' :  '']" v-text="item.text"></dd>
                     <a>
-               <!--  </template>
-                <template v-else>
-                    <a>
-                        <dt  @click='tip' class="iconfont" :class="[item.isActive ? item.activeClass :  item.iconClass]">
-                            <i v-if="item.hint.count" v-text="item.hint.count | get_prompt " :class="'_news-'+item.hint.type"></i> 
-                        </dt>
-                        <dd :class="[item.isActive ? 'no-logon' :  '']" v-text="item.text"></dd>
-                    </a>
-                </template> -->
            </template> 
             
         </nav>
@@ -31,20 +22,15 @@ export default {
     data () {
         return {
           isActive: true,
-          // index_nav:[]
         };
     },
-    filters: {
-          get_prompt(hint) {
-              return hint.count
-          }
+    beforeRouteEnter (to, from, next) {
+        this.get_index_nav(1)
     },
     watch:{
         path:function(val){
-            console.log(val)
             for (var i = this.index_nav.length - 1; i >= 0; i--) {
                 if(this.path == this.index_nav[i].path.path){
-                    console.log('>>>>>>>>>>>>>>>')
                     this.set_menu_active(this.index_nav[i].index)
                 }
             }
@@ -58,7 +44,8 @@ export default {
     }),
     methods: {
         ...mapActions([
-            'set_menu_active'
+            'set_menu_active',
+            'get_index_nav'
         ]),
         go(item) {
             this.set_menu_active(item.index);
@@ -66,7 +53,7 @@ export default {
         },
         tip() {
             let self = this
-            Vue.info('信息', '请填写项目资料，若已完成请等待审核，联系方式：0731-89707428');
+            Vue.info('请填写项目资料，若已完成请等待审核，联系方式：0731-89707428');
         }
     }
  
